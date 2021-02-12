@@ -1,0 +1,105 @@
+html {
+  background-color: black;
+}
+
+#root {
+  background-color: black;
+}
+
+h1 {
+  text-align: center;
+  color: grey;
+  padding-top: 10px;
+  font-family: 'Playfair Display', serif;
+}
+
+li {
+  font-family: 'Playfair Display', serif;
+  font-size: 20px;
+}
+
+.last {
+  font-family: 'Playfair Display', serif;
+}
+
+.container {
+  width: 400px;
+  height: 600px;
+  margin: auto; 
+  margin-top: 40px;
+  border-radius: 20px;
+  background-color: #E0E0E0;
+}
+
+.input {
+  width: 600px;
+  height: 40px;
+  margin-left: 10px;
+  margin-top: 5px;
+  border-radius: 10px;
+  padding-left: 30px;
+  border: 0;
+}
+
+.input:focus {
+  outline: none;
+}
+
+.list-group-item {
+  position: relative;
+  padding: 10px;
+}
+
+.fa.fa-times {
+     position: absolute;
+     font-size: 25px;
+     right: 40px;
+     bottom: 15px;
+     color: rgb(226, 25, 25);
+     cursor: pointer;
+}
+
+strong {
+   color: rgb(218, 14, 31);
+} 
+
+
+
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
