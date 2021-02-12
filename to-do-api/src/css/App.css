@@ -37,7 +37,7 @@ li {
   margin-left: 10px;
   margin-top: 5px;
   border-radius: 10px;
-  padding-left: 30px;
+  padding-left: 10px;
   border: 0;
 }
 
@@ -62,8 +62,6 @@ li {
 strong {
    color: rgb(218, 14, 31);
 } 
-
-
 
 .App {
   text-align: center;

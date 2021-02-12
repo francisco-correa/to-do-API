@@ -57,7 +57,7 @@ let updateTheToDo = async () => {
   const json = await request.json()
   const updateTodo = json
   console.log(updateTodo, "<-update to do list")
-  getListToDo()
+  getListToDo()  
   }
  
 
@@ -79,23 +79,24 @@ let deleteUserAndToDo = async () => {
   }
 
   const [list, setList] = useState([]);
-  const [task, setTask] = useState({label:" ", done:false});  
+  const [task, setTask] = useState({label:"", done:false});  
   useEffect( ()=> {
     createNewUser()
-    getListToDo()
-    updateTheToDo()
+  //  getListToDo()
+     updateTheToDo()
+   // deleteUserAndToDo()
   }, [])
  
   return (
     <div className="container">
       <h1>ToDos-API</h1>
-      <h4>User: Francisco</h4>
+      <h4>User: francisco</h4>
       <form
         onSubmit={(event) => {
           list.push(task);
-          setTask({label:" ", done:false});  
+          setTask({label:"", done:false});  
           event.preventDefault();
-          updateTheToDo()  
+          updateTheToDo()
         }}
       >
         <span>{JSON.stringify(task)}</span>
@@ -116,9 +117,7 @@ let deleteUserAndToDo = async () => {
             return (
               <li key={index} className="list-group-item">
                 {item.label}
-                <a type="button" onClick={() => setList(list.filter((i) => i !== item))
-                 // updateTheToDo()
-                  }>
+                <a type="button" onClick={() => setList(list.filter((i) => i !== item))}>
                   <i className="fa fa-times" />
                 </a> 
               </li>
@@ -130,6 +129,9 @@ let deleteUserAndToDo = async () => {
           <strong>{list.length}</strong>{" "}
           {`${list.length === 1 ? "Element" : "Elements"} left`}
         </div>
+        <br></br>
+        <a type="button" className="btn btn-danger" onClick={() => 
+         deleteUserAndToDo()}>Delete User and To do</a>
       </div>
     </div>
   );
