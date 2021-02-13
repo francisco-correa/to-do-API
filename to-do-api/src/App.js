@@ -75,22 +75,31 @@ let deleteUserAndToDo = async () => {
   
   const json = await request.json()
   const deleteUser = json
+  createNewUser()
+  getListToDo()
   console.log(deleteUser, "<-delete user and todos")
   }
 
   const [list, setList] = useState([]);
   const [task, setTask] = useState({label:"", done:false});  
+  
+  // remove one task
+  const removeTask = async (item) => {
+    console.log("-Delete-Task-:", item)
+    const arrayFilter = await list.filter((i) => i.label !== item)
+    setList(arrayFilter)
+  }
+
   useEffect( ()=> {
     createNewUser()
-  //  getListToDo()
-     updateTheToDo()
-   // deleteUserAndToDo()
+    getListToDo()
   }, [])
  
   return (
     <div className="container">
       <h1>ToDos-API</h1>
-      <h4>User: francisco</h4>
+      <h4>User: <i>francisco</i></h4>
+      {/* <span>{JSON.stringify(task)}</span> */}
       <form
         onSubmit={(event) => {
           list.push(task);
@@ -99,7 +108,6 @@ let deleteUserAndToDo = async () => {
           updateTheToDo()
         }}
       >
-        <span>{JSON.stringify(task)}</span>
         <input
           type="text"
           value={task.label}   
@@ -107,31 +115,34 @@ let deleteUserAndToDo = async () => {
             setTask({label:event.target.value, done:false})
           }}
           className="input"
-          placeholder="Add a new task">
+          placeholder="What needs to be done?">
         </input>
       </form>
       <div className="task-list">
         <hr></hr>
         <ul className="list-group list-group-flush">
-          {list.map((item, index) => {
-            return (
-              <li key={index} className="list-group-item">
-                {item.label}
-                <a type="button" onClick={() => setList(list.filter((i) => i !== item))}>
-                  <i className="fa fa-times" />
-                </a> 
-              </li>
-            );
-          })} 
+        {Array.isArray(list) ? (list.map((item, index) => {
+          return (
+          <li key={index} className="list-group-item">
+            {item.label}
+              <a type="button" onClick={() => {removeTask(item.label)}}>
+                <i className="fa fa-times"/>
+              </a> 
+          </li>
+        );
+        })) : (<h3>"No Task, Add a new Task"</h3>)}
         </ul>
         <hr></hr>
+        <a type="button" className="btn btn-primary" onClick={() => 
+         updateTheToDo()}>Save your Task(s)</a>
+         <hr></hr>
         <div className="last" style={{fontSize: "20px"}}>
           <strong>{list.length}</strong>{" "}
           {`${list.length === 1 ? "Element" : "Elements"} left`}
         </div>
         <br></br>
         <a type="button" className="btn btn-danger" onClick={() => 
-         deleteUserAndToDo()}>Delete User and To do</a>
+         deleteUserAndToDo()}>Delete User and To do<i className="fa fa-bomb"></i></a>
       </div>
     </div>
   );

@@ -24,7 +24,7 @@ li {
 
 .container {
   width: 400px;
-  height: 600px;
+  height: 800px;
   margin: auto; 
   margin-top: 40px;
   border-radius: 20px;
@@ -32,9 +32,8 @@ li {
 }
 
 .input {
-  width: 600px;
+  width: 400px;
   height: 40px;
-  margin-left: 10px;
   margin-top: 5px;
   border-radius: 10px;
   padding-left: 10px;
@@ -57,6 +56,11 @@ li {
      bottom: 15px;
      color: rgb(226, 25, 25);
      cursor: pointer;
+}
+
+.fa.fa-bomb {
+  font-size: 20px;
+  margin-left: 10px;
 }
 
 strong {
