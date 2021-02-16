@@ -99,7 +99,6 @@ let deleteUserAndToDo = async () => {
     <div className="container">
       <h1>ToDos-API</h1>
       <h4>User: <i>francisco</i></h4>
-      {/* <span>{JSON.stringify(task)}</span> */}
       <form
         onSubmit={(event) => {
           list.push(task);
